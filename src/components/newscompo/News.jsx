@@ -4,6 +4,7 @@ import axios from "axios";
 
 function News() {
   const [articles, setarticles] = useState([]);
+  
 
  useEffect(() => {
     const fetchData = async () => {
