@@ -90,11 +90,17 @@ export default function formsection(props) {
                 Text summary
               </h4>
               <p className="text-sm">
-                {text.split(" ").length}word and {text.length} characters
+                {
+                  text.split(/\s+/).filter((element) => {
+                    return element.length != 0;
+                  }).length
+                }
+                word and {text.length} characters
               </p>
             </div>
             <div className="flex gap-2">
               <button
+                disabled={text.length === 0}
                 type="button"
                 className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-blue-700 sm:w-fit hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-blue-700 dark:focus:ring-primary-800"
                 onClick={handleUpclick}
@@ -102,6 +108,7 @@ export default function formsection(props) {
                 Case Change
               </button>
               <button
+                disabled={text.length === 0}
                 type="button"
                 className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-red-500 sm:w-fit hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-red-700 dark:hover:bg-red-800 dark:focus:ring-primary-800"
                 onClick={handleClearClick}
@@ -109,6 +116,7 @@ export default function formsection(props) {
                 Clear Text
               </button>
               <button
+                disabled={text.length === 0}
                 type="button"
                 className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-blue-700 sm:w-fit hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-blue-700 dark:focus:ring-primary-800"
                 onClick={handleRemoveSpacesClick}

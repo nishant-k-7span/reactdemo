@@ -5,6 +5,8 @@ import Textform from "./components/textform/index";
 import About from "./components/about";
 import Alert from "./components/alert/alert";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import News from "./components/newscompo/News";
+
 function App() {
   const [mode, setMode] = useState("light");
   const [alert, setAlert] = useState(null);
@@ -35,10 +37,11 @@ function App() {
         {/* <SignUp /> */}
         <div className="max-w-[1280px] mx-auto pt-8 px-5 relative">
           <Routes>
-            <Route exact path="/about" element={<About />} />
+          <Route exact path="/" element={<News/>} />
+            <Route exact path="/about" element={<About mode={mode} />} />
             <Route
               exact
-              path="/"
+              path="/contact"
               element={
                 <Textform
                   showAlert={showAlert}
